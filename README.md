@@ -9,3 +9,5 @@ random-word my-word-list.txt    # => tastiness
 
 random word my-word-list.txt 3  # => polystyrenes, premillennially, kalimba
 ```
+
+Tested with Ruby 2.2.2.

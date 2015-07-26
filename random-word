@@ -1,0 +1,24 @@
+#!/usr/bin/env ruby
+
+if ARGV.length < 1
+  $stderr.puts 'usage:'
+  $stderr.puts 'random-word my-word-list.txt'
+  $stderr.puts 'random-word my-word-list.txt 3'
+  exit 1
+end
+
+filename = ARGV.first
+count = if ARGV.length >= 2 then ARGV[1].to_i else 1 end
+
+unless File.exist?(filename)
+  $stderr.puts "#{filename} does not exist"
+  exit 1
+end
+
+unless count > 0
+  $stderr.puts "#{ARGV[1]} is not a valid count"
+  exit 1
+end
+
+words = File.read(filename).split.sample(count)
+words.each { |word| puts word.strip }
