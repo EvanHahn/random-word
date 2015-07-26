@@ -10,8 +10,8 @@ end
 filename = ARGV.first
 count = if ARGV.length >= 2 then ARGV[1].to_i else 1 end
 
-unless File.exist?(filename)
-  $stderr.puts "#{filename} does not exist"
+unless File.file?(filename)
+  $stderr.puts "#{filename} is not a file"
   exit 1
 end
 
